@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Plura",
+  title: "Yukti",
   description: "All in one agency solution",
 };
 
