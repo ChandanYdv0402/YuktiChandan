@@ -1,9 +1,11 @@
 import { auth, clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
-const isPublicRoutes = createRouteMatcher(["/site", "/site(.*)", "/agency", "/agency(.*)"]);
+// const isPublicRoutes = createRouteMatcher(["/","/site", "/site(.*)", "/agency", "/agency(.*)"]);
+const publicRoutes = ['/', '/site', '/api/uploadthing'];
+
 export default clerkMiddleware(async (auth, req) => {
-  if (!isPublicRoutes(req)) await auth.protect();
+  // if (publicRoutes.includes(req.nextUrl.pathname)) await auth.protect();
 
   const { nextUrl } = req;
   const searchParams = nextUrl.searchParams.toString();
